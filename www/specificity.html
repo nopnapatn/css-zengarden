@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>CSS Specificity: The Beauty of CSS Design</title>
+
+	<link rel="stylesheet" media="screen" href="style.css?v=28june2023">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="author" content="Saac Sornchai">
+	<meta name="description" content="A demonstration of what can be accomplished visually through CSS-based design.">
+	<meta name="robots" content="all">
+</head>
+
+<body id="css-specificity">
+<div class="page-wrapper">
+
+	<section class="intro" id="specificity-intro">
+		<header role="banner">
+			<h1>CSS Specificity</h1>
+		</header>
+
+		<div class="summary" id="specificity-summary" role="article">
+			<p>Specificity is the algorithm used by browsers to determine the CSS declaration that is the most relevant to an element, which in turn, determines the property value to apply to the element. The specificity algorithm calculates the weight of a CSS selector to determine which rule from competing CSS declarations gets applied to an element.</p>
+		</div>
+
+		<div class="preamble" id="specificity-preamble" role="article">
+			<h3>What is Specificity?</h3>
+			<p>If there are two or more CSS rules that point to the same element, the selector with the highest specificity value will "win", and its style declaration will be applied to that HTML element.</p>
+			<p>Think of specificity as a score/rank that determines which style declaration is ultimately applied to an element.</p>
+			<p>Browsers consider specificity after determining cascade origin and importance. In other words, for competing property declarations, specificity is relevant and compared only between selectors from the one cascade origin and layer that has precedence for the property. Order of appearance becomes relevant when the selector specificities of the competing declarations in the cascade layer with precedence are equal.</p>
+		</div>
+	</section>
+
+	<section class="main supporting" id="specificity-content" role="main">
+		<div class="section-content explanation" id="specificity-explanation" role="article">
+			<h3>How is specificity calculated?</h3>
+			<p>Specificity is an algorithm that calculates the weight that is applied to a given CSS declaration. The weight is determined by the number of selectors of each weight category in the selector matching the element (or pseudo-element). If there are two or more declarations providing different property values for the same element, the declaration value in the style block having the matching selector with the greatest algorithmic weight gets applied.</p>
+			<p>The specificity algorithm is basically a three-column value of three categories or weights - ID, CLASS, and TYPE - corresponding to the three types of selectors. The value represents the count of selector components in each weight category and is written as <em>ID - CLASS - TYPE</em>. The three columns are created by counting the number of selector components for each selector weight category in the selectors that match the element.</p>
+		</div>
+
+		<div class="section-content selector-weight" id="selector-weight-categories" role="article">
+			<h4>Selector weight categories</h4>
+			<p>The selector weight categories are listed here in the order of decreasing specificity:</p>
+			
+			<dl>
+				<dt id="id_column">ID column</dt>
+				<dd>
+					<p>Includes only <a href="#ID_selectors">ID selectors</a>, such as <code>#example</code>. For each ID in a matching selector, add 1-0-0 to the weight value.</p>
+				</dd>
+				<dt id="class_column">CLASS column</dt>
+				<dd>
+					<p>Includes <a href="#Class_selectors">class selectors</a>, such as <code>.myClass</code>, attribute selectors like <code>[type="radio"]</code> and <code>[lang|="fr"]</code>, and pseudo-classes, such as <code>:hover</code>, <code>:nth-of-type(3n)</code>, and <code>:required</code>. For each class, attribute selector, or pseudo-class in a matching selector, add 0-1-0 to the weight value.</p>
+				</dd>
+				<dt id="type_column">TYPE column</dt>
+				<dd>
+					<p>Includes <a href="#Type_selectors">type selectors</a>, such as <code>p</code>, <code>h1</code>, and <code>td</code>, and pseudo-elements like <code>::before</code>, <code>::placeholder</code>, and all other selectors with double-colon notation. For each type or pseudo-element in a matching selector, add 0-0-1 to the weight value.</p>
+				</dd>
+				<dt id="no_value">No value</dt>
+				<dd>
+					<p>The universal selector (<a href="#Universal_selectors"><code>*</code></a>) and the pseudo-class <a href="#where"><code>:where()</code></a> and its parameters aren't counted when calculating the weight so their value is 0-0-0, but they do match elements. These selectors do not impact the specificity weight value.</p>
+				</dd>
+			</dl>
+			
+			<p>Combinators, such as <a href="#Adjacent_sibling_combinator"><code>+</code></a>, <a href="#Child_combinator"><code>&gt;</code></a>, <a href="#General_sibling_combinator"><code>~</code></a>, <a href="#Descendant_combinator">" "</a>, and <a href="#Column_combinator"><code>||</code></a>, may make a selector more specific in what is selected but they don't add any value to the specificity weight.</p>
+			
+			<p>The negation pseudo-class, <a href="#not"><code>:not()</code></a>, itself has no weight. Neither do the <a href="#is"><code>:is()</code></a> or the <a href="#has"><code>:has()</code></a> pseudo-classes. The parameters in these selectors, however, do. The values of both come from the parameter in the list of parameters that has the highest specificity. The <a href="#the_is_not_and_has_exceptions"><code>:not()</code>, <code>:is()</code> and <code>:has()</code> exceptions</a> are discussed below.</p>
+		</div>
+		
+		<div class="section-content learn-more" id="learn-more-specificity" role="article">
+			<h4>Learn More</h4>
+			<p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity">Specificity | MDN</a></p>
+		</div>
+
+		<footer>
+			<a href="http://validator.w3.org/check/referer" title="Check the validity of this site&#8217;s HTML" class="zen-validate-html">HTML</a>
+			<a href="http://jigsaw.w3.org/css-validator/check/referer" title="Check the validity of this site&#8217;s CSS" class="zen-validate-css">CSS</a>
+			<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" title="View the Creative Commons license of this site: Attribution-NonCommercial-ShareAlike." class="zen-license">CC</a>
+			<a href="http://mezzoblue.com/zengarden/faq/#aaa" title="Read about the accessibility of this site" class="zen-accessibility">A11y</a>
+			<a href="https://github.com/mezzoblue/csszengarden.com" title="Fork this site on Github" class="zen-github">GH</a>
+		</footer>
+
+	</section>
+
+
+	<aside class="sidebar" role="complementary">
+		<div class="wrapper">
+
+			<div class="sidebar-content other-pages" id="other-pages">
+				<h3 class="archives">Other Pages:</h3>
+				<nav role="navigation">
+					<ul>
+						<li class="next">
+							<a href="index.html">
+								Index
+							</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+
+			<div class="sidebar-content design-archives" id="design-archives">
+				<h3 class="archives">Archives:</h3>
+				<nav role="navigation">
+					<ul>
+						<li class="viewall">
+							<a href="http://www.mezzoblue.com/zengarden/alldesigns/" title="View every submission to the Zen Garden.">
+								View All Designs
+							</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+
+			<div class="sidebar-content zen-resources" id="zen-resources">
+				<h3 class="resources">Resources:</h3>
+				<ul>
+					<li class="view-css">
+						<a href="style.css" title="View the source CSS file of the currently-viewed design.">
+							View This Design&#8217;s <abbr title="Cascading Style Sheets">CSS</abbr>						</a>
+					</li>
+					<li class="css-resources">
+						<a href="http://www.mezzoblue.com/zengarden/resources/" title="Links to great sites with information on using CSS.">
+							<abbr title="Cascading Style Sheets">CSS</abbr> Resources
+						</a>
+					</li>
+					<li class="zen-faq">
+						<a href="http://www.mezzoblue.com/zengarden/faq/" title="A list of Frequently Asked Questions about the Zen Garden.">
+							<abbr title="Frequently Asked Questions">FAQ</abbr>
+						</a>
+					</li>
+					<li class="zen-submit">
+						<a href="http://www.mezzoblue.com/zengarden/submit/" title="Send in your own CSS file.">
+							Submit a Design
+						</a>
+					</li>
+					<li class="zen-translations">
+						<a href="http://www.mezzoblue.com/zengarden/translations/" title="View translated versions of this page.">
+							Translations
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</aside>
+
+
+</div>
+
+<!--
+
+	These superfluous divs/spans were originally provided as catch-alls to add extra imagery.
+	These days we have full ::before and ::after support, favour using those instead.
+	These only remain for historical design compatibility. They might go away one day.
+		
+-->
+<div class="extra1" role="presentation"></div><div class="extra2" role="presentation"></div><div class="extra3" role="presentation"></div>
+<div class="extra4" role="presentation"></div><div class="extra5" role="presentation"></div><div class="extra6" role="presentation"></div>
+
+</body>
+</html>

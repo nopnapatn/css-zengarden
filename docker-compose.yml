@@ -1,0 +1,11 @@
+services:
+  nginx:
+    image: nginx:alpine
+    container_name: nginx-csszengarden
+    restart: always
+    ports:
+      - 80:80
+    volumes:
+      - ./www:/var/www/html
+      - ./logs/nginx/:/var/log/nginx:rw
+      - ./nginx/conf.d/:/etc/nginx/conf.d/

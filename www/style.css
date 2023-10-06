@@ -1,0 +1,162 @@
+/**
+ * author: Nopnapat Norasri
+ * ID: 6410450133
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Libre+Barcode+39+Text&family=Press+Start+2P&family=Ubuntu&display=swap');
+
+* {
+    font-family: 'Libre Barcode 39 Text', cursive;
+    font-family: 'Press Start 2P', cursive;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+body {
+    padding: 0px;
+    margin: 0px;
+    background: #1d2021;
+    color: #ebdbb2;
+}
+
+/* big container */
+.page-wrapper {
+    margin-inline: 25%;
+}
+
+/* container 1 */
+[role=banner] h1 {
+    color: #458588;
+}
+
+/* section content summary */
+.summary {
+    border-top: 5px solid #ebdbb2;
+}
+.summary abbr {
+    color: #b16286;
+}
+
+/* section content preamble */
+.preamble {
+    border: 2px solid #458588;
+    background-color: #458588;
+    background-image: url(penguin.png);
+    background-size: 250px 250px;
+    background-repeat: no-repeat;
+    background-position: 10px;
+    padding-left: 35%;
+}
+.preamble h3 {
+    font-family: 'Press Start 2P', cursive;
+    color: #1d2021;
+}
+.preamble abbr {
+    color: #1d2021;
+}
+
+/* container 2 */
+/* section content explanation */
+.explanation abbr {
+    color: #b16286;
+}
+
+/* section content participation */
+.participation abbr {
+    color: #b16286;
+}
+.participation p a abbr {
+    color: #b8bb26;
+}
+
+/* section content benefits */
+.benefits abbr {
+    color: #b16286;
+}
+
+/* section content requirements */
+.requirements abbr {
+    color: #b16286;
+}
+
+dt {
+    background-color: #b16286;
+}
+
+/* footer */
+footer {
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 30px;
+}
+
+footer a {
+    border-radius: 20px;
+    background-color: #ebdbb2;
+    text-decoration: none;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin: 5px;
+}
+
+footer a:hover {
+    background-color: #928374;
+}
+
+footer a:link {
+    color: #1d2021;
+}
+
+/* container 3 */
+.wrapper {
+    border-top: 5px solid #ebdbb2;
+    display: flex;
+    justify-content: center;
+}
+
+.sidebar-content {
+    margin: 10px;
+}
+
+/* h1-h3 */
+h1 {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 60px;
+    color: #ebdbb2;
+}
+
+h2 {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 40px;
+    color: #458588;
+    line-height: 50px;
+}
+
+h3 {
+    color: #458588;
+}
+
+/* abbr */
+abbr {
+    text-decoration: none;
+    /* color: #b16286; */
+}
+
+h2 abbr {
+    font-family: 'Press Start 2P', cursive;
+    color: #ebdbb2;
+}
+
+/* a link */
+a:link {
+    color: #b8bb26;
+}
+
+a:visited {
+    color: #b8bb26;
+}
+
+a:hover {
+    color: #98971a;
+}
